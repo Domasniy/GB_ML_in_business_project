@@ -31,12 +31,12 @@ def load_model(model_path):
 		model = dill.load(f)
 	print(model)
 
-modelpath = "/app/app/models/logreg_pipeline.dill"
+modelpath = "/app/app/models/xgb_pipeline.dill"
 load_model(modelpath)
 
 @app.route("/", methods=["GET"])
 def general():
-	return """Welcome to fraudelent prediction process. Please use 'http://<address>/predict' to POST"""
+	return """Welcome to Telco churn prediction process. Please use 'http://<address>/predict' to POST"""
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -49,6 +49,7 @@ def predict():
 
 		description, company_profile, benefits = "", "", ""
 		request_json = flask.request.get_json()
+		logger.info(request_json)
 		if request_json["description"]:
 			description = request_json['description']
 
