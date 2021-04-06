@@ -1,23 +1,29 @@
 # python-flask-docker
-Итоговый проект (пример) курса "Машинное обучение в бизнесе"
+Итоговый проект курса "Машинное обучение в бизнесе"
 
 Стек:
 
-ML: sklearn, pandas, numpy
+ML: sklearn, pandas, numpy, xgboost
 API: flask
-Данные: с kaggle - https://www.kaggle.com/shivamb/real-or-fake-fake-jobposting-prediction
+Данные: с kaggle - https://www.kaggle.com/blastchar/telco-customer-churn
 
-Задача: предсказать по описанию вакансии является ли она фейком или нет (поле fraudulent). Бинарная классификация
+Задача: предсказать по признаком отток клиентов. Бинарная классификация
 
 Используемые признаки:
 
-- description (text)
-- company_profile (text)
-- benefits (text)
+Numerical:
+- 'TotalCharges'
+- 'MonthlyCharges'
+- 'tenure'
 
-Преобразования признаков: tfidf
+Categorical:
+'gender','SeniorCitizen', 'Partner', 'Dependents','PhoneService', 'MultipleLines', 'InternetService',
+'OnlineSecurity', 'OnlineBackup', 'DeviceProtection','TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract',
+'PaperlessBilling', 'PaymentMethod'
 
-Модель: logreg
+Преобразования признаков: OneHot
+
+Модель: XGBoost
 
 ### Клонируем репозиторий и создаем образ
 ```
