@@ -55,12 +55,8 @@ def predict():
 
 		print("doing predictions now...")
 		preds = model.predict_proba(test)
-		print(preds)
+		
 		data = {'predictions' : preds.tolist()}
-		print(type(data['predictions']))
-		#prediction_series = list(pd.Series(preds))
-
-		#final_predictions = pd.DataFrame(prediction_series)
 
 		responses = jsonify(data)
 		responses.status_code = 200
